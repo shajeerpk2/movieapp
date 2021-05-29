@@ -48,10 +48,10 @@ function MoviesRow(HeaderData) {
             starSpacing="5px"
           />
         </div>
-        <h4 className="RowTitle">
-            {/* i notice that some movies give u a title a name or an orginal name , api information isnt consistent   */}
-            {movie?.name || movie?.title || movie?.orginal_name}
-        </h4>
+        // <h4 className="RowTitle">
+        //     {/* i notice that some movies give u a title a name or an orginal name , api information isnt consistent   */}
+        //     {movie?.name || movie?.title || movie?.orginal_name}
+        // </h4>
       ))}
     </div>
   );
