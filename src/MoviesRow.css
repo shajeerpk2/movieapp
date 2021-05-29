@@ -1,0 +1,31 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.rowItem {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 30%;
+  padding: 20px;
+  transition: transform 450ms;
+}
+.rowItem:hover {
+  transform: scale(1.08);
+}
+.rowImage {
+  background-size: cover;
+  border-radius: 8px;
+
+  /* margin: 0 25px; */
+}
+.RowDatails {
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 150px;
+}
+.RowTitle {
+}
