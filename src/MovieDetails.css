@@ -1,0 +1,22 @@
+.movieDetails {
+  padding: 40px;
+  display: flex;
+  box-shadow: 0px 5px 8px -9px black;
+}
+.DetailDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ImageDiv {
+  border: none;
+  overflow: hidden;
+  max-height: 400px;
+}
+.DetailImage {
+  background-size: contain;
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+}

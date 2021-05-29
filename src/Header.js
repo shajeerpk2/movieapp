@@ -5,11 +5,14 @@ class Header extends Component {
   constructor(props) {
     super(props);
     console.log("props", props);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleKeyUp = this.handleKeyUp.bind(this);
   }
 
-  handleKeyDown(e) {
+  handleKeyUp(e) {
     if (e.key === "Enter") {
+      this.props.handleData(e.target.value);
+    }
+    if (e.target.value == "") {
       this.props.handleData(e.target.value);
     }
   }
@@ -33,7 +36,7 @@ class Header extends Component {
           <div className="HeaderInput">
             <input
               placeholder="Search movies"
-              onKeyDown={this.handleKeyDown}
+              onKeyUp={this.handleKeyUp}
             ></input>
           </div>
         </div>

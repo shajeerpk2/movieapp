@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "./axios";
 import "./MoviesRow.css";
 import StarRatings from "react-star-ratings";
+import { useHistory } from "react-router-dom";
 
 const base_url = "https://image.tmdb.org/t/p/original/";
 function MoviesRow(HeaderData) {
   const [movies, setMovies] = useState([]);
-
+  const history = useHistory();
   useEffect(() => {
     async function fetchData() {
       let url =
@@ -29,10 +30,24 @@ function MoviesRow(HeaderData) {
     fetchData();
   }, [HeaderData]);
 
+  const HandleImageClick = (movies) => {
+    //HeaderData.roots("/Details");
+    history.push({
+      pathname: `/Details`,
+      state: { detail: movies },
+    });
+
+    console.log("categ", movies);
+  };
+
   return (
     <div className="row">
       {movies.map((movie) => (
-        <div key={movie.id} className="rowItem">
+        <div
+          onClick={() => HandleImageClick(movie)}
+          key={movie.id}
+          className="rowItem"
+        >
           <img
             className="rowImage" //use && if theres no else or : otherwise use ?
             src={`${base_url}${movie.backdrop_path}`}

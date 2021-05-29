@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import { render } from "react-dom";
 import "./App.css";
 import Header from "./Header";
 import MoviesRow from "./MoviesRow";
-
-class App extends Component {
+import MovieDetails from "./MovieDetails";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+export default class App extends Component {
   constructor() {
     super();
     this.state = {
@@ -19,10 +21,23 @@ class App extends Component {
           handleData={this.handleParentData}
           handleCategDate={this.handleCategData}
         />
-        <MoviesRow
+        <Router>
+          <Route
+            path="/moviList"
+            render={(props) => (
+              <MoviesRow
+                HeaderData={this.state.parentTextBoxValue}
+                filtercateg={this.state.filtercateg}
+                roots={Route}
+              />
+            )}
+          />
+          <Route path="/Details" component={MovieDetails} />
+        </Router>
+        {/* <MoviesRow
           HeaderData={this.state.parentTextBoxValue}
           filtercateg={this.state.filtercateg}
-        />
+        /> */}
       </div>
     );
   }
@@ -36,5 +51,3 @@ class App extends Component {
     console.log("categ123", categ);
   };
 }
-
-export default App;
