@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "./axios";
 import "./MoviesRow.css";
+import StarRatings from "react-star-ratings";
 
 const base_url = "https://image.tmdb.org/t/p/original/";
 function MoviesRow(HeaderData) {
@@ -41,7 +42,16 @@ function MoviesRow(HeaderData) {
             {/* i notice that some movies give u a title a name or an orginal name , api information isnt consistent   */}
             {movie?.name || movie?.title || movie?.orginal_name}
           </h4>
+          <StarRatings
+            rating={movie.vote_average / 2}
+            starDimension="15px"
+            starSpacing="5px"
+          />
         </div>
+        <h4 className="RowTitle">
+            {/* i notice that some movies give u a title a name or an orginal name , api information isnt consistent   */}
+            {movie?.name || movie?.title || movie?.orginal_name}
+        </h4>
       ))}
     </div>
   );
